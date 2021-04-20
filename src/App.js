@@ -9,10 +9,20 @@ function App() {
   let [longitude, setLongitude] = useState("");
   let [latitude, setLatitude] = useState("");
 
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      setLongitude(position.coords.longitude);
+      setLatitude(position.coords.latitude);
+    },
+    () => {
+      //Error - couldn't get location
+    }
+  );
+
   return (
     <div className="App">
       <Nasa />
-      <OpenWeather />
+      <OpenWeather latitude={latitude} longitude={longitude} />
       <Ressy />
     </div>
   );
