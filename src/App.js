@@ -10,12 +10,6 @@ function App() {
   let [latitude, setLatitude] = useState("");
   let [coordinates, setCoordinates] = useState("")
   
-  setCoordinates(navigator.geolocation.getCurrentPosition(position => {
-    const { latitude, longitude } = position.coords;
-  }))
-
-  
-
   navigator.geolocation.getCurrentPosition(
     (position) => {
       setLongitude(position.coords.longitude);
@@ -31,6 +25,7 @@ function App() {
       <Nasa />
       <OpenWeather latitude={latitude} longitude={longitude} />
       <Ressy />
+      
     </div>
   );
 }
