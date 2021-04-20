@@ -16,11 +16,21 @@ function App() {
 
   
 
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      setLongitude(position.coords.longitude);
+      setLatitude(position.coords.latitude);
+    },
+    () => {
+      //Error - couldn't get location
+    }
+  );
+
   return (
     <div className="App">
       <Nasa />
-      <OpenWeather />
-      <button></button>
+      <OpenWeather latitude={latitude} longitude={longitude} />
+      <Ressy />
     </div>
   );
 }
