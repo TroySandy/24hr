@@ -28,6 +28,8 @@ function OpenWeather(props) {
   let [temperature, setTemperature] = useState(0);
   let [tempToggle, setTempToggle] = useState(false);
   let [city, setCity] = useState("");
+  let [windSpd, setWindSpd] = useState("");
+  let [windDir, setWindDir] = useState("");
 
   useEffect(() => {
     fetch(apiUrl)
@@ -35,9 +37,12 @@ function OpenWeather(props) {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
+
         setTemperature(data.main.temp);
         setCity(data.name);
-        console.log(data);
+        setWindSpd(data.wind.speed);
+        setWindDir(getDirection(data.wind.deg));
       });
   }, []);
 
@@ -47,6 +52,9 @@ function OpenWeather(props) {
         The weather is currently{" "}
         {tempToggle ? tempCelcius(temperature).toFixed(2) : temperature}
         &deg;{tempToggle ? "C" : "F"} in {city}.
+      </div>
+      <div id="wind">
+        The wind is {windSpd} MPH {windDir}
       </div>
       <Button onClick={() => setTempToggle(!tempToggle)}>Toggle Temp</Button>
     </div>
