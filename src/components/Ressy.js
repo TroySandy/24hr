@@ -3,4 +3,3 @@ function Ressy(props) {
 }
 
 export default Ressy;
-props;
