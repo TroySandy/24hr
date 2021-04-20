@@ -6,19 +6,18 @@ import OpenWeather from "./components/OpenWeather";
 import { useState } from "react";
 
 function App() {
-  let [longitude, setLongitude] = useState("-86.15");
-  let [latitude, setLatitude] = useState("39.76");
-  let [coordinates, setCoordinates] = useState("")
-  
+  let [longitude, setLongitude] = useState(0);
+  let [latitude, setLatitude] = useState(0);
+
   navigator.geolocation.getCurrentPosition(
     (position) => {
       setLongitude(position.coords.longitude);
       setLatitude(position.coords.latitude);
+      console.log(position.coords.longitude);
+      console.log(position.coords.latitude);
     },
     () => {
       //Error - couldn't get location
-      setLongitude(-86.15);
-      setLatitude(39.76);
     }
   );
 

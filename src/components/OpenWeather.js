@@ -32,6 +32,7 @@ function OpenWeather(props) {
   let [windDir, setWindDir] = useState("");
 
   useEffect(() => {
+    console.log(apiUrl);
     fetch(apiUrl)
       .then((res) => {
         return res.json();
@@ -44,7 +45,7 @@ function OpenWeather(props) {
         setWindSpd(data.wind.speed);
         setWindDir(getDirection(data.wind.deg));
       });
-  }, []);
+  }, [props.latitude]);
 
   return (
     <div>
