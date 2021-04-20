@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Nasa from "./components/Nasa";
 import OpenWeather from "./components/OpenWeather";
-import Ressy from "./components/Ressy";
+//import Ressy from "./components/Ressy";
 import { useState } from "react";
 
 function App() {
@@ -10,12 +10,6 @@ function App() {
   let [latitude, setLatitude] = useState("");
   let [coordinates, setCoordinates] = useState("")
   
-  setCoordinates(navigator.geolocation.getCurrentPosition(position => {
-    const { latitude, longitude } = position.coords;
-  }))
-
-  
-
   navigator.geolocation.getCurrentPosition(
     (position) => {
       setLongitude(position.coords.longitude);
