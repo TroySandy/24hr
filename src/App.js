@@ -8,12 +8,23 @@ import { useState } from "react";
 function App() {
   let [longitude, setLongitude] = useState("");
   let [latitude, setLatitude] = useState("");
+  let [coordinates, setCoordinates] = useState("")
+  
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      setLongitude(position.coords.longitude);
+      setLatitude(position.coords.latitude);
+    },
+    () => {
+      //Error - couldn't get location
+    }
+  );
 
   return (
     <div className="App">
       <Nasa />
-      <OpenWeather />
-      {/* <Ressy /> */}
+      <OpenWeather latitude={latitude} longitude={longitude} />
+      <Ressy />
     </div>
   );
 }
