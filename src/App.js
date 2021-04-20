@@ -22,9 +22,9 @@ function App() {
 
   return (
     <div className="App">
-      <Nasa latitude={latitude} longitude={longitude} />
+      <Nasa />
       <OpenWeather latitude={latitude} longitude={longitude} />
-      {/* <Ressy /> */}
+      <Ressy />
       
     </div>
   );
