@@ -8,6 +8,13 @@ import { useState } from "react";
 function App() {
   let [longitude, setLongitude] = useState("");
   let [latitude, setLatitude] = useState("");
+  let [coordinates, setCoordinates] = useState("")
+  
+  setCoordinates(navigator.geolocation.getCurrentPosition(position => {
+    const { latitude, longitude } = position.coords;
+  }))
+
+  
 
   navigator.geolocation.getCurrentPosition(
     (position) => {
