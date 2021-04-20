@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Nasa from "./components/Nasa";
 import OpenWeather from "./components/OpenWeather";
-import Ressy from "./components/Ressy";
+//import Ressy from "./components/Ressy";
 import { useState } from "react";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Nasa />
       <OpenWeather />
-      <Ressy />
+      {/* <Ressy /> */}
     </div>
   );
 }
