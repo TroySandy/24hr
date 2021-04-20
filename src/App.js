@@ -25,6 +25,7 @@ function App() {
       <Nasa />
       <OpenWeather latitude={latitude} longitude={longitude} />
       <Ressy />
+      
     </div>
   );
 }
