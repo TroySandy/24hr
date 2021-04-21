@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Card, CardText, CardBody, Button } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  CardText,
+  CardBody,
+  Button,
+  CardImgOverlay,
+} from "reactstrap";
 import "./OpenWeather.css";
 import Nasa from "./Nasa";
 
@@ -81,41 +88,50 @@ function OpenWeather(props) {
     <div>
       <Card id="Card">
         <Nasa latitude={props.latitude} longitude={props.longitude} />
-        <CardBody>
+
+        <CardImgOverlay className="text">
+          <CardTitle>
+            <h1>Welcome to the Agents-of-Code 24hr Project</h1>
+          </CardTitle>
           <CardText>
-            <p>
-              The weather is currently{" "}
-              {tempToggle ? tempCelcius(temperature).toFixed(2) : temperature}
-              &deg;{tempToggle ? "C" : "F"} in {city}. The wind is currently
-              blowing {windToggle ? windKph(windSpd).toFixed(2) : windSpd}{" "}
-              {windToggle ? "KPH" : "MPH"} from the {windDir}
-            </p>
-            <Button
-              className="mx-1"
-              outline
-              color="info"
-              size="lg"
-              onClick={() => setTempToggle(!tempToggle)}
-            >
-              Toggle {tempToggle ? "Fahrenheit" : "Celcius"}
-            </Button>
-            <Button
-              className="mx-1"
-              outline
-              color="info"
-              size="lg"
-              onClick={() => setWindToggle(!windToggle)}
-            >
-              Toggle {windToggle ? "MPH" : "KPH"}
-            </Button>
-            <hr />
-            <h6>
-              Powered by 🚀<a href="https://api.nasa.gov/">NASA Earth API</a>{" "}
-              &amp; ☁️
-              <a href="https://openweathermap.org/">OpenWeather API</a>
-            </h6>
+            {" "}
+            The weather is currently{" "}
+            {tempToggle ? tempCelcius(temperature).toFixed(2) : temperature}
+            &deg;{tempToggle ? "C" : "F"} in {city}. The wind is currently
+            blowing {windToggle ? windKph(windSpd).toFixed(2) : windSpd}{" "}
+            {windToggle ? "KPH" : "MPH"} from the {windDir}
           </CardText>
-        </CardBody>
+          <div className="div">
+            <div className="col-xs">
+              <Button
+                outline
+                color="info"
+                size="lg"
+                onClick={() => setTempToggle(!tempToggle)}
+                className="button "
+              >
+                Toggle {tempToggle ? "Fahrenheit" : "Celcius"}
+              </Button>
+            </div>
+            <div className="col-xs">
+              <Button
+                outline
+                color="info"
+                size="lg"
+                onClick={() => setWindToggle(!windToggle)}
+                className="button"
+              >
+                Toggle {windToggle ? "MPH" : "KPH"}
+              </Button>
+              <hr />
+              <h6>
+                Powered by 🚀<a href="https://api.nasa.gov/">NASA Earth API</a>{" "}
+                &amp; ☁️
+                <a href="https://openweathermap.org/">OpenWeather API</a>
+              </h6>
+            </div>
+          </div>
+        </CardImgOverlay>
       </Card>
     </div>
   );

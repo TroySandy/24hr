@@ -6,3 +6,44 @@
   border: 1px solid black !important;
   box-shadow: -3px 3px 2px gray;
 }
+.div {
+  margin: 0;
+}
+.text {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+}
+
+.button {
+  margin: 10px;
+  --bottom-color: #999;
+  --right-color: #ddd;
+  transition: box-shadow 0.2s, transform 0.15s;
+  box-shadow: 1px 0 0 var(--right-color), 1px 1px 0 var(--bottom-color),
+    2px 1px 0 var(--right-color), 2px 2px 0 var(--bottom-color),
+    3px 2px 0 var(--right-color), 3px 3px 0 var(--bottom-color),
+    4px 3px 0 var(--right-color), 4px 4px 0 var(--bottom-color),
+    5px 4px 0 var(--right-color), 5px 5px 0 var(--bottom-color),
+    6px 5px 0 var(--right-color), 6px 6px 0 var(--bottom-color),
+    7px 6px 0 var(--right-color), 7px 7px 0 var(--bottom-color),
+    8px 7px 0 var(--right-color), 8px 8px 0 var(--bottom-color);
+}
+.button:focus,
+.button:hover {
+  outline: --hue 2px solid;
+  box-shadow: 1px 0 0 var(--right-color), 1px 1px 0 var(--bottom-color),
+    2px 1px 0 var(--right-color), 2px 2px 0 var(--bottom-color),
+    3px 2px 0 var(--right-color), 3px 3px 0 var(--bottom-color),
+    4px 3px 0 var(--right-color), 4px 4px 0 var(--bottom-color);
+
+  transform: translate(3px, 3px);
+}
+.button:active {
+  outline: 0;
+  box-shadow: 1px 0 0 var(--right-color), 1px 1px 0 var(--bottom-color);
+
+  transform: translate(5px, 5px);
+}
