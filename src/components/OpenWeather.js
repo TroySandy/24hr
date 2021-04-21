@@ -101,7 +101,7 @@ function OpenWeather(props) {
             blowing {windToggle ? windKph(windSpd).toFixed(2) : windSpd}{" "}
             {windToggle ? "KPH" : "MPH"} from the {windDir}
           </CardText>
-          <div className="div">
+          <div className="div row">
             <div className="col-xs">
               <Button
                 outline
@@ -110,7 +110,7 @@ function OpenWeather(props) {
                 onClick={() => setTempToggle(!tempToggle)}
                 className="button "
               >
-                Toggle {tempToggle ? "Fahrenheit" : "Celcius"}
+               {tempToggle ? "Fahrenheit" : "Celcius"}
               </Button>
             </div>
             <div className="col-xs">
@@ -121,7 +121,7 @@ function OpenWeather(props) {
                 onClick={() => setWindToggle(!windToggle)}
                 className="button"
               >
-                Toggle {windToggle ? "MPH" : "KPH"}
+               {windToggle ? "MPH" : "KPH"}
               </Button>
               <hr />
               <h6>
