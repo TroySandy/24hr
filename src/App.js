@@ -1,10 +1,13 @@
 import "./App.css";
 import OpenWeather from "./components/OpenWeather";
+
 import {useState} from 'react';
 
 function Display() {
     let [longitude, setLongitude] = useState(0);
   let [latitude, setLatitude] = useState(0);
+
+
 
   navigator.geolocation.getCurrentPosition(
     (position) => {

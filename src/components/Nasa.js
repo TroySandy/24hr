@@ -28,6 +28,7 @@ function Nasa(props) {
   }, [props.latitude]);
 
   return <CardImg src={imageSrc} alt="Nasa Location Pic" className="cardImg" />;
+
 }
 
 export default Nasa;
