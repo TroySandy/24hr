@@ -4,7 +4,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5em;
   border: 1px solid black !important;
-  box-shadow: -3px 3px 2px gray;
+  box-shadow: 3px 3px 2px gray;
 }
 .div {
   margin: 0;
@@ -13,8 +13,12 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  color: white;
+  color: black;
+  text-shadow: 1px 1px 5px white;
   font-weight: bold;
+}
+h6{
+    text-shadow: none;
 }
 
 .button {
