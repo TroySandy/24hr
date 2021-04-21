@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CardImg } from "reactstrap";
 
-
 function Nasa(props) {
   const [imageSrc, setImageSrc] = useState("");
 
@@ -28,7 +27,7 @@ function Nasa(props) {
     fetchResults();
   }, [props.latitude]);
 
-  return <CardImg src={imageSrc} alt='Nasa Location Pic'className='cardImg'/>;
+  return <CardImg src={imageSrc} alt="Nasa Location Pic" className="cardImg" />;
 }
 
 export default Nasa;

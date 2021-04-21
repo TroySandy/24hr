@@ -20,8 +20,8 @@ function Display() {
 
   return(
     <div className='container-flex'>
-    <OpenWeather latitude={latitude} longitude={longitude} />
-  </div>
+      <OpenWeather latitude={latitude} longitude={longitude} />
+    </div>
   )
 }
 

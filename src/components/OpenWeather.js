@@ -59,9 +59,6 @@ function windKph(windMph) {
 }
 
 function OpenWeather(props) {
-  let apiKey = "e6d5c52c7e69d99580386764c2a09e6d";
-  let apiUrl = `//api.openweathermap.org/data/2.5/weather?units=imperial&lat=${props.latitude}&lon=${props.longitude}&appid=${apiKey}`;
-
   let [temperature, setTemperature] = useState(0);
   let [tempToggle, setTempToggle] = useState(false);
   let [windToggle, setWindToggle] = useState(false);
@@ -70,13 +67,14 @@ function OpenWeather(props) {
   let [windDir, setWindDir] = useState("");
 
   useEffect(() => {
-    // console.log(apiUrl);
+    let apiKey = "e6d5c52c7e69d99580386764c2a09e6d";
+    let apiUrl = `//api.openweathermap.org/data/2.5/weather?units=imperial&lat=${props.latitude}&lon=${props.longitude}&appid=${apiKey}`;
+
     fetch(apiUrl)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        // console.log(data);
         console.log(data);
         setTemperature(data.main.temp);
         setCity(data.name);
@@ -90,6 +88,7 @@ function OpenWeather(props) {
     <div>
       <Card id="Card">
         <Nasa latitude={props.latitude} longitude={props.longitude} />
+
         <CardImgOverlay className="text">
           <CardTitle>
             <h1>Welcome to the Agents-of-Code 24hr Project</h1>
@@ -100,9 +99,9 @@ function OpenWeather(props) {
             {tempToggle ? tempCelcius(temperature).toFixed(2) : temperature}
             &deg;{tempToggle ? "C" : "F"} in {city}. The wind is currently
             blowing {windToggle ? windKph(windSpd).toFixed(2) : windSpd}{" "}
-            {!windToggle ? "MPH" : "KPH"} from the {windDir}
+            {windToggle ? "KPH" : "MPH"} from the {windDir}
           </CardText>
-          <div className='div'>
+          <div className="div">
             <div className="col-xs">
               <Button
                 outline
@@ -111,7 +110,7 @@ function OpenWeather(props) {
                 onClick={() => setTempToggle(!tempToggle)}
                 className="button "
               >
-                Toggle C/F
+                Toggle {tempToggle ? "Fahrenheit" : "Celcius"}
               </Button>
             </div>
             <div className="col-xs">
@@ -122,8 +121,14 @@ function OpenWeather(props) {
                 onClick={() => setWindToggle(!windToggle)}
                 className="button"
               >
-                Toggle MPH/KPH
+                Toggle {windToggle ? "MPH" : "KPH"}
               </Button>
+              <hr />
+              <h6>
+                Powered by 🚀<a href="https://api.nasa.gov/">NASA Earth API</a>{" "}
+                &amp; ☁️
+                <a href="https://openweathermap.org/">OpenWeather API</a>
+              </h6>
             </div>
           </div>
         </CardImgOverlay>
